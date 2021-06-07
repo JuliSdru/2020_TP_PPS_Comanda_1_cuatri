@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button defaultHref="/home" slot="start"   icon="arrow-undo" style="color: black;"></ion-back-button>
+    <ion-title style="color: black; text-align: center;">
+      <i> <b>ENCUESTAS</b> </i>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="text-center">
+  <div *ngIf="encuesta">
+
+    <ion-content *ngIf="loading" class="ion-padding ion-text-center">
+      <img src="../../assets/img/spinner.gif" style="margin-top:50%;position: absolute;left: 36%;" width="116" height="116">
+  </ion-content>
+          <ion-label style="color:rgb(255, 255, 255); font-size: large; top: 5px; position: relative;">
+            ¿Qué le parecio la atención de nuestros empleados?</ion-label>
+    
+       <ion-list-header>
+          <ion-label style="color:rgb(255, 255, 255); text-align: center; font-size: medium;">Indique nivel de satisfacción</ion-label>
+       </ion-list-header>
+    <ion-item>
+        <ion-range min="-200" max="200" color="light" style="border-radius: 5px;">
+            <ion-icon color = "light" size="small" slot="start" name="sad"></ion-icon>
+            <ion-icon color = "light" slot="end" name="happy"></ion-icon>
+        </ion-range>
+     </ion-item>
+     <table>
+       <tr>
+         <td *ngFor = "let item of fotos"><img [src] = "item" width="120" height="140"></td>
+       </tr>
+     </table>
+     <div>
+       <br>
+       <ion-button (click) = "tomarFoto()" color = "dark" expand="block"><ion-icon name = "camera" ></ion-icon></ion-button>
+     </div>
+     <br>
+     <ion-list-header>
+        <ion-label style="color:rgb(255, 255, 255); font-size: large">¿El tiempo de espera del pedido fue lo acordado?</ion-label>
+     </ion-list-header>
+     <br>
+     <ion-item style = "color:black">
+   
+       <ion-label style="color:rgb(255, 255, 255)">Seleccione una opción</ion-label>
+       <ion-select okText="Aceptar" cancelText="Cancelar">
+         <ion-select-option color = "dark" value="brown">Tardo demasiado</ion-select-option>
+         <ion-select-option value="blonde">Fue lo acordado</ion-select-option>
+         <ion-select-option value="black">Mejor de lo esperado</ion-select-option>
+      </ion-select>
+     </ion-item>
+    <br>
+    <ion-radio-group>
+        <ion-list-header>
+            <ion-label style="color:rgb(255, 255, 255); font-size: large">¿Recomendaria el restaurante MAWEY a otras personas?</ion-label>
+          </ion-list-header>
+          <br>
+        <ion-item>
+          
+          <ion-label style = "color:black">SI</ion-label>
+          <ion-radio slot="start" color = "dark"></ion-radio>
+        </ion-item>
+      <ion-item>
+          <ion-label style="color : black;">NO</ion-label>
+          <ion-radio slot="start"  color = "dark"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+      <ion-list-header>
+          <ion-label style="color:rgb(255, 255, 255); font-size: large">¿Que opinión se merece nuestra App?</ion-label>
+       </ion-list-header>
+       <ion-radio-group>
+          <ion-item>
+            <ion-label style = "color:black">Muy amigable con el cliente</ion-label>
+            <ion-radio slot="start" color = "dark"></ion-radio>
+          </ion-item>
+          <ion-item>
+              <ion-label style = "color:black">Dificil de manejar</ion-label>
+              <ion-radio slot="start" color = "dark"></ion-radio>
+            </ion-item>
+       </ion-radio-group>
+        <ion-radio-group>
+            <ion-list-header>
+                <ion-label style="color:rgb(255, 255, 255); font-size: large">Diganos cual fue su plato preferido:</ion-label>
+            </ion-list-header>
+            <ion-item>
+              <ion-label style="color : black;">PLATO PRINCIPAL</ion-label>
+              <ion-checkbox slot="start"  color = "dark"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+                <ion-label style="color : black;">POSTRE</ion-label>
+                <ion-checkbox slot="start"  color = "dark"></ion-checkbox>
+              </ion-item>
+        </ion-radio-group>
+        <ion-list-header>
+            <ion-label style="color:rgb(255, 255, 255); font-size: large">Realice algún comentario extra (opcional)</ion-label>
+         </ion-list-header>
+        <ion-item>
+            <ion-textarea color = "dark" style="color:black" placeholder = "Escriba aqui"></ion-textarea>
+        </ion-item>
+        <div>
+            <ion-button color = "dark" expand="block" size="large" (click) = "enviarEncuesta()">Enviar encuesta</ion-button>
+        </div>
+   
+ 
+
+</div>
+
+  <div *ngIf="!encuesta" style="top: 120px; position: relative;" class="segundo">
+    <img src="../../../assets/img/icon.png" style="width: 200px; left: 90px; position: relative; top: 10px;">
+    
+      <b><h1 style="text-align: center; color: white;">Gracias por participar de la encuesta.</h1></b>
+  </div>
+
+</ion-content>
+

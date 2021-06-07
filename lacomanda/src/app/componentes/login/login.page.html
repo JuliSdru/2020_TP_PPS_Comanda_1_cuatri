@@ -1,0 +1,64 @@
+
+<ion-content padding class="background">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12">
+  <ion-avatar >
+  <img src="../../../assets/img/avatar.png">
+</ion-avatar>
+<ion-card >
+  
+  <ion-card-content>
+
+    <h1 id="litheader"></h1>
+
+    
+      <ion-item color="tertiary" >
+        <ion-icon name="at-circle" color="primary"></ion-icon>
+        <ion-input [(ngModel)]="email" type = "text"  name = "nPassword" placeholder="  Usuario" > </ion-input>
+      </ion-item>
+      <br>
+      <ion-item color="tertiary">
+        <ion-icon name="medical" color="primary"></ion-icon>
+        <ion-input [(ngModel)]="password" type = "password"  name = "nPassword" placeholder="  Contraseña"> </ion-input>
+      </ion-item>
+
+    
+
+      
+
+    </ion-card-content>
+
+
+</ion-card>
+
+
+<ion-row>
+  <ion-col size="10" class="centrar-col" style="text-align: center;">
+      <br>
+      <ion-button  expand="block" class="boton"  fill="outline" (click)="onSubmitLogin()" class="btnI">Ingresar</ion-button>
+      <br>
+       <a href="#" class="recuperar">¿Olvidaste la contraseña? </a> 
+  <br>
+  <br>
+      <ion-button  expand="block" class="boton"  fill="outline" [routerLink]="['/registrar']" routerLinkActive="router-link-active" class="btnR">Registrarse</ion-button>
+    </ion-col>
+  </ion-row>
+
+ <div id="container"  >
+  <ion-item color="tertiary" class="select"> 
+    <ion-label>Seleccione usuario</ion-label>
+    <ion-select id="selectUser" [(ngModel)]="pickedName" interface="popover"  (ionChange)="pickUser(pickedName)">
+        <ion-select-option *ngFor="let usuario of users" value="{{usuario.perfil}}"  color="light">{{usuario.perfil}}</ion-select-option>
+    </ion-select>
+</ion-item>
+
+</div> 
+
+
+
+</ion-col>
+</ion-row>
+</ion-grid>
+
+</ion-content>

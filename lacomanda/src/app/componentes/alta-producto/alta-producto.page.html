@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-back-button defaultHref="" slot="start" color="light"  icon="arrow-undo"></ion-back-button>
+    <ion-title style="text-align: center;" color="light">  
+      
+      REGISTRAR PRODUCTOS 
+      <ion-icon name="restaurant"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background"> 
+  <ion-grid fixed>
+  <ion-row>
+    <ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12">
+     <!-- <img src={{productoJson.fotos}} class="img"> 
+
+
+
+  <ion-button  (click)="tomarFoto()" color ="primary" class="camera"><ion-icon name="camera" ></ion-icon></ion-button>
+   -->
+      <ion-card class="cliente">
+        
+        <br>
+    <ion-item color="primary">
+      <ion-label>Tipo:</ion-label>
+      <ion-select [(ngModel)]="pickedName" interface="popover" placeholder="Seleccione" (ionChange)="pickerUser(pickedName)">
+        <ion-select-option *ngFor="let producto of listaProductos" value="{{producto.tipo}}">{{producto.tipo}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+     <form [formGroup]="miFormulario">
+        <br>
+        <ion-item class="labels" >
+        <ion-input type="text" [(ngModel)]="productoJson.nombre" formControlName="nombre" placeholder="Nombre"></ion-input>
+      </ion-item>
+        <br>
+      <ion-item class="labels" >
+        <br>
+        <ion-input type="text" [(ngModel)]="productoJson.descripcion" formControlName="descripcion" placeholder="Descripción"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item class="labels" >
+        <br>
+        <ion-input type="text" [(ngModel)]="productoJson.tiempo" formControlName="tiempo" placeholder="Tiempo elaboración"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item class="labels" >
+        <br>
+        <ion-input type="text" [(ngModel)]="productoJson.precio" formControlName="precio" placeholder="Precio"></ion-input>
+      </ion-item> 
+      <br>
+
+      
+  </form>
+    <!--img src="../../../assets/img/icon.png" alt=""-->
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+
+          <ion-button (click)="tomarFotografia()" class="btnRegistro" expand="block">Tomar foto</ion-button>
+          <ion-button (click)="registrarProducto()" class="btnRegistro"  expand="block">REGISTRAR PRODUCTO</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+   
+
+        
+    </ion-card>
+
+  </ion-col>
+</ion-row>
+</ion-grid>
+</ion-content> 

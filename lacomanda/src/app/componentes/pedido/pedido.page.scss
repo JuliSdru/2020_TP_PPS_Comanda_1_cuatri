@@ -1,0 +1,59 @@
+.fondo
+{
+    --background: url("../../../assets/img/fondoss.png") 0 0/100% 100% no-repeat;
+}
+.pedidos
+{
+    text-align: center;
+    color: white;
+    font-size: x-large;
+}
+.card
+{
+    background-color: rgba(0, 0, 0, 0.705);
+    width: 360px;
+    left: 12px;
+} 
+.card1
+{
+    background-color: rgba(0, 128, 0, 0.712);
+    width: 360px;
+    left: 12px;
+} 
+.derivar
+{
+    position: relative;
+    width: 350px;
+    height: 50px;
+    color: white;
+    border: white 2px solid;
+    top: -6px;
+ 
+}
+.derivar1
+{
+    position: relative;
+    width: 350px;
+    height: 50px;
+    color: black;
+    border: black 4px solid;
+    top: -6px;
+    
+ 
+}
+
+.boton1
+{
+    position: relative;
+   left: 20px;
+   top: 5px;
+}
+.boton2
+{
+   position: relative;
+   left: 20px;
+   top: 5px;
+   width: 360px;
+   font-size: medium;
+   
+}

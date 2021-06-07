@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar align="center">
+    <ion-back-button defaultHref="/home" slot="start" color="light"  icon="arrow-undo"></ion-back-button>
+    <ion-title color="light">LISTADO DE MESA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo">
+  <ion-content *ngIf="loading" class="ion-padding ion-text-center">
+    <img src="../../assets/img/spinner.gif" style="margin-top:50%;position: absolute;left: 36%;" width="116" height="116">
+</ion-content>
+  <div *ngFor = "let mesita of listadoMesas">
+    <ion-card style="color: black;">
+      <ion-list >
+      <ion-radio-group allow-empty-selection>
+        <ion-list-header>
+          <ion-label color="light">MESA DISPONIBLES:</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-label color="light">Mesa: {{mesita.mesa}}</ion-label>
+          <ion-radio slot="end" color="primary" (click)="asignarMesa(mesita)" routerLink="/home" ></ion-radio>
+        </ion-item>
+
+      </ion-radio-group>
+    </ion-list>
+    </ion-card>
+  </div>
+
+</ion-content>

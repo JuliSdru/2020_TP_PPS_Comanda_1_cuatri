@@ -1,0 +1,32 @@
+
+<ion-content >
+  <ion-list>
+  <ion-card style="margin-top:15%" >
+      <ion-card-header >
+          <h3>Pedido para la mesa N° </h3>
+      </ion-card-header>
+    <ion-card-content >
+    <ion-item >
+      <ion-avatar slot="start">
+          <h1>avatar</h1>
+        </ion-avatar>
+        <ion-label style = "color:black">
+          <h2>producto.nombre x producto.cantidad</h2>
+          <p>Tiempo de espera :  min</p>
+          <ion-item lines = 'none' style="left:-7%;">
+            <ion-label color = "danger">Comida en proceso</ion-label>
+            <ion-spinner name = "dots" color = "danger" style = "left:85%;position: absolute;"></ion-spinner>
+          </ion-item>
+         
+       </ion-label>
+      </ion-item>
+      <ion-button color = "success" fill = "outline" size = "large"  (click) = "derivar(item)" >Derivar productos</ion-button>
+      <ion-button color = 'success' fill = 'outline' size = 'large' (click) = 'pedidoListo(item)' >Pedido listo <ion-icon name="checkmark-circle"></ion-icon>
+
+      </ion-button>
+    </ion-card-content>
+     
+</ion-card>
+</ion-list>
+</ion-content>
+

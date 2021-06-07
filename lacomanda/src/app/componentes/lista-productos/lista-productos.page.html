@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button defaultHref="/home" slot="start" color="light"  icon="arrow-undo"></ion-back-button>
+    <ion-title style="color: black; text-align: center;">
+     <i> <b>LISTA PRODUCTOS</b> </i>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content *ngIf="loading" class="ion-padding ion-text-center">
+    <img src="../../assets/img/spinner.gif" style="margin-top:50%;position: absolute;left: 36%;" width="116" height="116">
+</ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" size-lg="4" size-md="4" >
+      
+        <ion-button color="secondary" (click)="listarProductos('comida')" expand="block" class="arriba">
+          COMIDAS
+          <br>
+          <ion-icon name="fast-food-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="secondary" (click)="listarProductos('bebida')" expand="block" class="arriba">
+          BEBIDAS
+          <br>
+          <ion-icon name="wine-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="secondary" (click)="listarProductos('postre')" expand="block" class="arriba">
+          POSTRES
+          <br>
+          <ion-icon name="ice-cream-outline"></ion-icon>
+        </ion-button>
+        <br>
+        <ion-button color="secondary" (click)="alert()" expand="block">
+          Consultar al mozo
+          <br>
+          <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+        </ion-button>
+    </ion-col >
+
+    <ion-col size="12" size-lg="4" size-md="4">
+     
+
+     
+      <ion-card *ngFor = "let productos of lista">
+        <div *ngIf="productos.tipo == bandera">
+        <h1 style="color: white; text-align: center;">{{productos.nombre}}</h1>
+        
+        <img [src]="productos.foto[0]" alt="" width="100" height="100" style="position: relative; left: 8px; width: 110px; height: 110px;border: black 2px solid;"> 
+        <img [src]="productos.foto[1]" alt="" width="100" height="100" style="position: relative; left: 16px; width: 110px; height: 110px; border: black 2px solid;">
+        <img [src]="productos.foto[2]" alt="" width="100" height="100" style="position: relative; left: 24px; width: 110px; height: 110px;border: black 2px solid;">
+    
+        <h4 style="color: white; text-align: center;">Valor unitario: ${{productos.precio}}</h4>
+        <h4 style="color: white;">Descripcion: {{productos.descripcion}}</h4>
+        <h4 style="color: white;">Tiempo: {{productos.tiempo}} min</h4>
+
+      </div>
+      </ion-card>
+    
+  </ion-col >
+  <ion-col size="12" size-lg="4" size-md="4">
+    
+  </ion-col>
+  </ion-row>
+ 
+</ion-grid >
+ 
+</ion-content>

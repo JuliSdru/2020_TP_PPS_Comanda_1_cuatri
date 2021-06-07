@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-back-button defaultHref="" slot="start" color="light"icon="arrow-undo"></ion-back-button>
+    <ion-title style="text-align: center;" color="light">  
+      
+      REGISTRAR EMPLEADO
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background"> 
+  <ion-grid fixed>
+  <ion-row>
+    <ion-col size="12" >
+    <img src={{usuarioJson.foto}} class="img">
+
+
+
+  <ion-button  (click)="tomarFoto()" color ="primary" class="camera"><ion-icon name="camera" ></ion-icon></ion-button>
+  
+      <ion-card class="cliente">
+        <br> 
+        <ion-item  class="item"> 
+          <ion-label>Tipo:</ion-label>
+          <ion-select [(ngModel)]="pickedName" interface="popover" 
+           (ionChange)="pickUser(pickedName)">
+              <ion-select-option *ngFor="let usuario of listaPerfiles" value="{{usuario.perfil}}"
+                color="light">{{usuario.perfil}}</ion-select-option>
+          </ion-select> 
+      </ion-item>
+      <br>
+      <form [formGroup]="Empleado">
+        <ion-item class="labels" fill="outline">
+         
+          <br>
+          <ion-input type="text" [(ngModel)]="usuarioJson.nombre" formControlName="nombre" placeholder="Nombre"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item class="labels" >
+         
+          <br>
+          <ion-input type="text" [(ngModel)]="usuarioJson.apellido"  formControlName="apellido" placeholder="Apellido"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item class="label" >
+         
+          <br>
+          <ion-input type="text" [(ngModel)]="usuarioJson.dni" formControlName="dni" placeholder="DNI"></ion-input>
+        </ion-item>
+        <br>
+       <img src="../../../assets/img/qr.png" (click)="escanearCodigo()" class="botonQR">
+       <a class="dni">Escanee su DNI </a> 
+       <br>
+       <ion-item class="labels" >
+         
+        <br>
+        <ion-input type="text" [(ngModel)]="usuarioJson.cuil"  formControlName="cuil" placeholder="CUIL"></ion-input>
+      </ion-item>
+      <br>
+        <ion-item class="labels" fill="outline">     
+          <ion-input type="email" [(ngModel)]="usuarioJson.correo" formControlName="email" placeholder="Correo"></ion-input>
+        </ion-item>
+        <br>
+          <ion-item class="labels" fill="outline">
+          <ion-input type= "password" [(ngModel)]="usuarioJson.contrasenia" formControlName="contraseña" placeholder="Contraseña"></ion-input>
+        </ion-item>
+       
+      </form>   
+  
+
+      <br>
+      <ion-button (click)="registrarUsuario()" class="btnRegistro"   [disabled]='!Empleado.valid' expand="block" fill="outline" class="botonR">Registrarse</ion-button>
+      <br>
+
+
+</ion-card>
+
+</ion-col>
+</ion-row>
+</ion-grid>
+
+</ion-content>

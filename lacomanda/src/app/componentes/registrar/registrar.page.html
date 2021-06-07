@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-back-button defaultHref="" slot="start" color="light"  icon="arrow-undo"></ion-back-button>
+    <ion-title style="text-align: center;" color="light">  
+      
+      REGISTRARSE 
+      <ion-icon name="restaurant"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background"> 
+  <ion-grid fixed>
+  <ion-row>
+    <ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12">
+    <img src={{usuarioJson.foto}} class="img">
+
+
+
+  <ion-button  (click)="tomarFoto()" color ="primary" class="camera"><ion-icon name="camera" ></ion-icon></ion-button>
+      <ion-card class="cliente" *ngIf="pickedName=='cliente'">
+        <br> 
+        <ion-item  class="item"> 
+          <ion-label>Ingrese como:</ion-label>
+          <ion-select [(ngModel)]="pickedName" interface="popover" 
+           (ionChange)="pickUser(pickedName)">
+              <ion-select-option *ngFor="let clientes of clientes" value="{{clientes.perfil}}"
+                color="light">{{clientes.perfil}}</ion-select-option>
+          </ion-select> 
+      </ion-item>
+    <br>
+
+    <form [formGroup]="cliente">
+    <ion-item class="labels" fill="outline">
+      <br>
+      <ion-input type="text" [(ngModel)]="usuarioJson.nombre" formControlName="nombre" placeholder="Nombre"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item class="labels" >
+     
+      <br>
+      <ion-input type="text" [(ngModel)]="usuarioJson.apellido"  formControlName="apellido" placeholder="Apellido"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item class="label" >
+     
+      <br>
+      <ion-input type="text" [(ngModel)]="usuarioJson.dni" formControlName="dni" placeholder="DNI"></ion-input>
+    </ion-item>
+    <br>
+   <img src="../../../assets/img/qr.png" (click)="escanearCodigo()" class="botonQR">
+   <a class="dni">Escanee su DNI </a> 
+   <br>
+    <br>
+    <ion-item class="labels" fill="outline">     
+      <br>
+      <ion-input type="email" [(ngModel)]="usuarioJson.correo" formControlName="email" placeholder="Correo"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item class="labels" fill="outline"> 
+      <br>
+      <ion-input type= "password" [(ngModel)]="usuarioJson.contrasenia" formControlName="contraseña" placeholder="Contraseña"></ion-input>
+    </ion-item>
+
+  </form>
+    <br>
+    <ion-button (click)="registrarUsuario()" [disabled]='!cliente.valid' expand="block" fill="outline" class="botonR">Registrarse</ion-button>
+    <br>
+    
+
+
+
+
+</ion-card>
+<ion-card *ngIf="pickedName=='anonimo'" class="anonimo" >
+  <br> 
+  <ion-item  class="item"> 
+    <ion-label>Ingrese como:</ion-label>
+    <ion-select [(ngModel)]="pickedName" interface="popover" 
+     (ionChange)="pickUser(pickedName)">
+        <ion-select-option *ngFor="let clientes of clientes" value="{{clientes.perfil}}"
+          color="light">{{clientes.perfil}}</ion-select-option>
+    </ion-select> 
+</ion-item>
+<br>
+
+  <form [formGroup]="anonimo">
+    <ion-item fill="outline">
+      <br>
+      <ion-input type="text" [(ngModel)]="anonimoJson.nombre" formControlName="nombre" placeholder="Nombre" class="nombreA"></ion-input>
+    </ion-item>
+    <br>
+  
+    </form>
+      <br>
+      <ion-button (click)="registrarAnonimo()"  [disabled]='!anonimo.valid' expand="block" fill="outline" class="botonR">Registrarse</ion-button>
+      <br>
+    
+</ion-card>
+</ion-col>
+</ion-row>
+</ion-grid>
+
+</ion-content>

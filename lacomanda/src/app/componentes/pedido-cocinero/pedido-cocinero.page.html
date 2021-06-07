@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button defaultHref="/home" slot="start" style="color: black;" icon="arrow-undo"></ion-back-button>
+    <ion-title style="color: black; text-align: center; font-size: larger;">
+      <i> <b>PEDIDO COCINERO</b> </i>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content *ngIf="loading" class="ion-padding ion-text-center">
+    <img src="../../assets/img/spinner.gif" style="margin-top:50%;position: absolute;left: 36%;" width="116" height="116">
+</ion-content>
+  <div *ngFor = "let pedido of listaPedido">
+ 
+      
+    <ion-button  size="large" (click)="mostrarPedido(pedido.mesa)" class="boton1">Pedido para la mesa N {{pedido.mesa}}
+      <ion-icon name="chevron-forward"></ion-icon>
+    </ion-button>
+    <ion-card class="card">
+    <div *ngIf="mostrar== true && mesa== pedido.mesa" class="pedidos">
+    <br>
+      <div  *ngFor = "let pedido of pedido.platosPlato" >
+        {{pedido}} x1 <br><hr width="500px;" color="black" size="10">
+      </div>  
+      
+      <div   *ngFor = "let pedido of pedido.platosPostre" >
+      {{pedido}}  x1 
+   
+            <br><hr width="500px;" color="black" size="10">
+    </div>    
+    <div *ngIf = "nany === 0 && pedido.estadoChef ==='pendiente' ">
+    <button (click)="elaborarPedido(pedido.mesa)" class="derivar">ELABORAR PEDIDO</button>
+  </div>
+  <div *ngIf = "nany === 1">
+    <button (click)="pedidoListo(pedido.mesa)" class="derivar">PEDIDO LISTO</button>
+  </div>
+  </div>
+</ion-card>
+</div>
+  <!--div *ngFor = "let pedido of listaPedido">
+ 
+      
+    <button color="light" (click)="mostrarPedido(pedido.mesa)">Pedido para la mesa N {{pedido.mesa}}
+      <ion-icon name="chevron-forward"></ion-icon>
+    </button>
+    <div *ngIf="mostrar===true && mesa == pedido.mesa">
+      <div   *ngFor= "let pedido of listaComida" >
+        {{pedido}} <h4 *ngIf="pedido=='Ensalada Vegana'"> CANTIDAD: {{ensalada}}</h4>
+         
+        <h4  *ngIf="pedido=='Empanada'"> CANTIDAD: {{empanada}}</h4>
+        <h4  *ngIf="pedido=='Papas con cheddar'"> CANTIDAD: {{papas}} </h4>
+        <h4  *ngIf="pedido=='Picada Mawey'"> CANTIDAD: {{picada}}</h4>
+        <h4  *ngIf="pedido=='Pastas'"> CANTIDAD: {{pasta}} </h4> 
+       <br>---------------
+      </div>   
+      <div *ngIf = "nany === 0 && pedido.estadoChef ==='pendiente'">
+        <button (click)="elaborarPedido(pedido.mesa)">Elaborar Pedido</button>
+      </div>
+      <div *ngIf = "nany === 1">
+        <button (click)="pedidoListo(pedido.mesa)">Listo</button>
+      </div>
+  
+  </div>
+  
+    
+    
+  
+
+</div-->
+</ion-content>

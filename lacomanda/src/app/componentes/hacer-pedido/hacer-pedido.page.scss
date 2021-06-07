@@ -1,0 +1,95 @@
+.todoCompleto{
+  
+  z-index: 9999999 !important;
+  width: 90%;
+ // width: 85%;
+  position: absolute !important;
+  top: -670px;
+  //top: -600px;
+  left: 5%;
+  //background-color: rgba(133, 8, 8, 0.966); /*position: absolute;   
+   /* top: -660px;                   
+    bottom: 0;                    
+                                                       
+         
+    height: 700px; 
+    width: 380px;   */
+    
+  }
+  ion-content{
+    --background: url("../../../assets/img/blanconegro.png") 0 0/100% 100% no-repeat;
+  }
+
+.total
+{
+  color: white;
+  font-size: medium;
+  background-color: rgb(0, 0, 0);
+}
+.precioTotal
+{
+  position: relative;
+  left: 26px;
+  width: 220px;
+  height: 80px;
+  font-size: x-large;
+
+}
+
+.pedido
+{
+   position: absolute;
+   left: 250px;
+   width: 120px;
+   height: 80px;
+}
+.arriba
+{
+  height: 60px;
+  font-size: larger;
+}
+.botonmas
+{
+  position: relative;
+  left: 40px;
+  top: 50px;
+  height: 50px;
+  width: 50px;
+  font-size: x-large;
+}
+
+.botonmenos
+{
+  position: relative;
+  left: 265px;
+  top: -57px;
+  height: 50px;
+  width: 50px;
+  font-size: x-large;
+}
+.logo
+{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  left: 42%;
+  top: 5px;
+}
+.informacion
+{
+  position: relative;
+  left: 65px;
+}
+.botones 
+{
+  position: relative;
+  top: 10px;
+ 
+}
+.botoness 
+{
+  position: relative;
+  top: 10px;
+  
+ 
+}

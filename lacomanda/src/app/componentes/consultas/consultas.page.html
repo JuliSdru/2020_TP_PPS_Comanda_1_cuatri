@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button defaultHref="" slot="start" style="color: black;" icon="arrow-undo"></ion-back-button>
+    <ion-title style="color: black; text-align: center; font-size: larger;">
+      <i> <b>CONSULTAS PENDIENTES</b> </i>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-content *ngIf="loading" class="ion-padding ion-text-center">
+    <img src="../../assets/img/spinner.gif" style="margin-top:50%;position: absolute;left: 36%;" width="116" height="116">
+</ion-content>
+  <div *ngIf= "mostrar>0">
+      <div *ngFor="let consulta of listarConsulta">
+<br>
+        <ion-button  size="large" expand="block" (click)="mostrarPedido(consulta.mesa)"class="boton1">
+          <p style="color: white; font-size:medium; text-align: center; top: 50px; border: black 4px solid;" >  Consulta de la mesa : {{consulta.mesa}}</p>
+        
+          <ion-icon name="chevron-forward"></ion-icon>
+        </ion-button>
+       <ion-card *ngIf= "mostrarP==true && mesa==consulta.mesa"  style="color: white; font-size: x-large; text-align: center; top: 20px; border: black 4px solid;">
+          <br> {{consulta.consulta}} <br><br>
+
+        <div>
+          <button (click)="consultaEma(consulta.mesa)" class="derivar">Confirmar</button>
+        </div>
+         </ion-card>
+        
+      </div>
+   
+             
+            
+             
+    </div>
+    
+    <!--(click)= "-->
+    <div *ngIf= "mostrar==0" >
+      <ion-card style="color: white; font-size: x-large; text-align: center; top: 50px; border: black 4px solid;">
+        <p>No hay consultas</p>
+       </ion-card>
+    </div>
+  
+
+</ion-content>
